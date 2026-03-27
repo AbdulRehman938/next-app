@@ -1,21 +1,7 @@
 import Image from "next/image";
 import { CtaPanel } from "@/components/cta-panel";
+import { AboutValuesList } from "@/components/dynamic/about-values-list";
 import { PageHero } from "@/components/page-hero";
-
-const values = [
-  {
-    title: "Clarity over noise",
-    description: "Every sprint starts with a clear user problem and ends with a measurable outcome.",
-  },
-  {
-    title: "Small loops, fast learning",
-    description: "We iterate in tight cycles so your team can make confident product decisions quickly.",
-  },
-  {
-    title: "Craft with purpose",
-    description: "We keep interfaces elegant and maintainable, with systems your engineers can extend.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -48,14 +34,7 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-16 md:px-10">
-        <div className="grid gap-5 md:grid-cols-3">
-          {values.map((value) => (
-            <article key={value.title} className="rounded-xl2 border border-brand-line bg-brand-card p-6 shadow-soft">
-              <h3 className="text-xl font-semibold">{value.title}</h3>
-              <p className="mt-3 text-brand-muted">{value.description}</p>
-            </article>
-          ))}
-        </div>
+        <AboutValuesList />
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-20 md:px-10">
