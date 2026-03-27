@@ -3,6 +3,7 @@ import Link from "next/link";
 import { GsapScrollStory } from "@/components/animated/gsap-scroll-story";
 import { MotionInteractiveLab } from "@/components/animated/motion-interactive-lab";
 import { CtaPanel } from "@/components/cta-panel";
+import { LiveMetricsPanel } from "@/components/dynamic/live-metrics";
 import { FeatureCard } from "@/components/feature-card";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -64,6 +65,8 @@ export default function Home() {
           />
         </div>
       </section>
+
+      <LiveMetricsPanel />
 
       <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
         <SectionHeading

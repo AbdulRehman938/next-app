@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactForm } from "@/components/dynamic/contact-form";
 import { PageHero } from "@/components/page-hero";
 
 export default function ContactPage() {
@@ -11,43 +12,7 @@ export default function ContactPage() {
       />
 
       <section className="mx-auto grid max-w-6xl gap-8 px-6 py-16 md:grid-cols-2 md:px-10">
-        <form className="rounded-xl2 border border-brand-line bg-brand-card p-6 shadow-soft md:p-8">
-          <div className="grid gap-5">
-            <label className="grid gap-2 text-sm font-medium text-brand-ink">
-              Name
-              <input
-                type="text"
-                name="name"
-                className="rounded-lg border border-brand-line bg-white px-4 py-3 outline-none ring-brand-primary transition focus:ring-2"
-                placeholder="Jane Doe"
-              />
-            </label>
-            <label className="grid gap-2 text-sm font-medium text-brand-ink">
-              Email
-              <input
-                type="email"
-                name="email"
-                className="rounded-lg border border-brand-line bg-white px-4 py-3 outline-none ring-brand-primary transition focus:ring-2"
-                placeholder="jane@company.com"
-              />
-            </label>
-            <label className="grid gap-2 text-sm font-medium text-brand-ink">
-              Project details
-              <textarea
-                name="details"
-                rows={5}
-                className="rounded-lg border border-brand-line bg-white px-4 py-3 outline-none ring-brand-primary transition focus:ring-2"
-                placeholder="What are you trying to launch in the next 60-90 days?"
-              />
-            </label>
-            <button
-              type="button"
-              className="rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-primaryDark"
-            >
-              Send inquiry
-            </button>
-          </div>
-        </form>
+        <ContactForm />
 
         <aside className="space-y-6 rounded-xl2 border border-brand-line bg-brand-card p-6 shadow-soft md:p-8">
           <div>
