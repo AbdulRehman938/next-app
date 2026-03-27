@@ -1,65 +1,129 @@
 import Image from "next/image";
+import Link from "next/link";
+import { GsapScrollStory } from "@/components/animated/gsap-scroll-story";
+import { MotionInteractiveLab } from "@/components/animated/motion-interactive-lab";
+import { CtaPanel } from "@/components/cta-panel";
+import { FeatureCard } from "@/components/feature-card";
+import { SectionHeading } from "@/components/section-heading";
+
+const features = [
+  {
+    title: "Fast product discovery",
+    description:
+      "Turn rough ideas into validated product directions through focused workshops and user-led research.",
+  },
+  {
+    title: "Design systems that scale",
+    description:
+      "Ship UI foundations your team can reuse across marketing pages, dashboards, and mobile surfaces.",
+  },
+  {
+    title: "Launch-ready engineering",
+    description:
+      "Bridge design and implementation with production-quality frontend architecture and clean handoff.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="mesh-bg">
+      <section className="mx-auto grid max-w-6xl gap-12 px-6 pb-16 pt-14 md:grid-cols-2 md:items-center md:px-10">
+        <div className="space-y-7 rise-in">
+          <span className="inline-flex rounded-full border border-brand-line bg-brand-card px-3 py-1 text-sm font-medium text-brand-muted">
+            Product Studio for ambitious founders
+          </span>
+          <h1 className="text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
+            Build a memorable product presence before you write your next feature.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="max-w-xl text-lg leading-relaxed text-brand-muted">
+            We help early teams craft positioning, interaction design, and launch-ready frontend experiences that make users trust your product from day one.
           </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              className="rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-primaryDark"
+            >
+              Book a discovery call
+            </Link>
+            <Link
+              href="/about"
+              className="rounded-full border border-brand-line bg-brand-card px-6 py-3 text-sm font-semibold text-brand-ink transition hover:border-brand-primary"
+            >
+              See how we work
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="rise-in rounded-xl2 border border-brand-line bg-brand-card p-4 shadow-soft">
+          <Image
+            src="/hero-illustration.svg"
+            alt="Illustration of a workspace planning board"
+            width={760}
+            height={540}
+            priority
+            className="h-auto w-full rounded-xl"
+          />
         </div>
-      </main>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20 md:px-10">
+        <SectionHeading
+          eyebrow="Core Capabilities"
+          title="Reusable building blocks for product growth"
+          description="We combine strategy and implementation so your team can launch faster without sacrificing quality."
+        />
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {features.map((feature) => (
+            <FeatureCard key={feature.title} title={feature.title} description={feature.description} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-20 md:px-10">
+        <div className="grid gap-5 md:grid-cols-3">
+          <Link
+            href="/about"
+            className="rounded-xl2 border border-brand-line bg-brand-card p-6 shadow-soft transition hover:-translate-y-0.5"
+          >
+            <h3 className="text-xl font-semibold">About us</h3>
+            <p className="mt-3 text-brand-muted">
+              Meet the team, our process, and why we focus on practical results.
+            </p>
+          </Link>
+          <Link
+            href="/blog"
+            className="rounded-xl2 border border-brand-line bg-brand-card p-6 shadow-soft transition hover:-translate-y-0.5"
+          >
+            <h3 className="text-xl font-semibold">Blog</h3>
+            <p className="mt-3 text-brand-muted">
+              Insights on product strategy, UX, and frontend craftsmanship.
+            </p>
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-xl2 border border-brand-line bg-brand-card p-6 shadow-soft transition hover:-translate-y-0.5"
+          >
+            <h3 className="text-xl font-semibold">Contact</h3>
+            <p className="mt-3 text-brand-muted">
+              Tell us your idea and get a clear roadmap for your next release.
+            </p>
+          </Link>
+        </div>
+      </section>
+
+      <MotionInteractiveLab />
+
+      <GsapScrollStory />
+
+      <section className="mx-auto max-w-6xl px-6 pb-20 md:px-10">
+        <CtaPanel
+          title="Ready to shape your product story?"
+          description="Start with a focused 30-minute strategy call and we will map your first execution sprint."
+          primaryHref="/contact"
+          primaryLabel="Start now"
+          secondaryHref="/blog"
+          secondaryLabel="Read our playbooks"
+        />
+      </section>
     </div>
   );
 }
